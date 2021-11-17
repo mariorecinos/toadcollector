@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<h1>Toads List</h1>
+
+{% for toad in toads %}
+    <div class="card">
+      <a href="{% url 'detail' toad.id %}">
+      <div class="card-content">
+        <span class="card-title">{{ toad.name}}</span>
+        <p>Breed: {{ toad.breed }}</p>
+        <p>Description: {{ toad.description }}</p>
+        {% if toad.age > 0 %}
+            <p>Age: {{ toad.age }}</p>
+        {% else %}
+            <p>Age: Tadpole</p>
+        {% endif %}
+      </div>
+    </a>
+    </div>
+  {% endfor %}
+
+  {% endblock %}
